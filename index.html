@@ -16,6 +16,7 @@
         // Play audio
         //
         function playAudio(src) {
+          alert('file: ' + cordova.file);
           var md = cordova.require("cordova/plugin_list").metadata;
           alert(JSON.stringify(md));
           alert(typeof Media);
