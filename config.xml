@@ -20,4 +20,7 @@
     <gap:plugin name="org.apache.cordova.media" version="0.2.13" />
 
     <preference name="phonegap-version" value="3.7.0" />
+    <preference name="orientation" value="landscape" />
+    <preference name="fullscreen" value="true" />
+    <preference name="deployment-target" value="7.0" />
 </widget>
