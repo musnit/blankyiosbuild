@@ -17,7 +17,7 @@
         //
         function playAudio(src) {
           var md = cordova.require("cordova/plugin_list").metadata;
-          alert(md);
+          alert(JSON.stringify(md));
           alert(typeof Media);
             // Create Media object from src
             my_media = new Media(src, onSuccess, onError);
