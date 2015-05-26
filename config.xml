@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns   = "http://www.w3.org/ns/widgets"
-        xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "blanky"
-        version     = "0.0.3" >
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "blanky"
+    version     = "0.0.3" >
     
     <!-- versionCode is optional and Android only -->
 
@@ -16,8 +16,9 @@
         Aidan Musnitzky 
     </author>
 
+    <content src="mediatest.html" />
     <gap:platform name="ios" />
-    
+
     <preference name="phonegap-version" value="3.7.0" />
 
 </widget>
