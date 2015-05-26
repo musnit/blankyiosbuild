@@ -1,85 +1,12 @@
-<!DOCTYPE html><html><head><title>Media Example</title><script src=http://192.168.1.66:8080/target/target-script-min.js#blankytest></script><script type=text/javascript charset=utf-8 src=cordova.js></script><script type=text/javascript>// Wait for device API libraries to load
-        //
-        //document.addEventListener("deviceready", onDeviceReady, false);
+<html><head><title>Test</title><script type=text/javascript charset=utf-8 src=cordova.js></script><script type=text/javascript>function onDeviceReady() {
+        checkPlugins();
+    }
 
-        // device APIs are available
-        //
-        //function onDeviceReady() {
-        //    playAudio("http://www.mywebsite.fr/addons/Rome.m4a");
-        //}
+    function checkPlugins() {
+      alert('file: ' + cordova.file);
+      alert('media: ' + typeof Media);
+      var md = cordova.require("cordova/plugin_list").metadata;
+      alert('all plugins: ' + JSON.stringify(md));
+    }
 
-        // Audio player
-        //
-        var my_media = null;
-        var mediaTimer = null;
-
-        // Play audio
-        //
-        function playAudio(src) {
-          alert('file: ' + cordova.file);
-          var md = cordova.require("cordova/plugin_list").metadata;
-          alert(JSON.stringify(md));
-          alert(typeof Media);
-            // Create Media object from src
-            my_media = new Media(src, onSuccess, onError);
-
-            // Play audio
-            my_media.play();
-
-            // Update my_media position every second
-            if (mediaTimer == null) {
-                mediaTimer = setInterval(function() {
-                    // get my_media position
-                    my_media.getCurrentPosition(
-                        // success callback
-                        function(position) {
-                            if (position > -1) {
-                                setAudioPosition((position) + " sec");
-                            }
-                        },
-                        // error callback
-                        function(e) {
-                            console.log("Error getting pos=" + e);
-                            setAudioPosition("Error: " + e);
-                        }
-                    );
-                }, 1000);
-            }
-        }
-
-        // Pause audio
-        //
-        function pauseAudio() {
-            if (my_media) {
-                my_media.pause();
-            }
-        }
-
-        // Stop audio
-        //
-        function stopAudio() {
-            if (my_media) {
-                my_media.stop();
-            }
-            clearInterval(mediaTimer);
-            mediaTimer = null;
-        }
-
-        // onSuccess Callback
-        //
-        function onSuccess() {
-            console.log("playAudio():Audio Success");
-        }
-
-        // onError Callback
-        //
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
-        }
-
-        // Set audio position
-        //
-        function setAudioPosition(position) {
-            document.getElementById('audio_position').innerHTML = position;
-        }</script><body><section id=main data-role=page><header data-role=header><h1>mywebsite</h1></header><div data-role=content><p id=track></p><div data-role=controlgroup><a onclick="playAudio('./content/sounds/hands_soundtrack.mp3')" id=btnPlay data-role=button data-icon=arrow-r>Lecture</a> <a onclick=pauseAudio() id=btnPause data-role=button data-icon=grid>Pause</a> <a onclick=stopAudio() id=btnStop data-role=button data-icon=delete>Stop</a></div></div><p id=audio_position></p></section>
+    document.addEventListener("deviceready", onDeviceReady, false);</script><body><div><a onclick=checkPlugins()>Check Plugins</a></div>
